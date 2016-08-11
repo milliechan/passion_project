@@ -1,3 +1,5 @@
 class Song < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :user 
+  validates :title, :url, presence: true 
+
 end

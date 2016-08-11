@@ -5,6 +5,8 @@ class CreateSongs < ActiveRecord::Migration
       t.string :url 
       t.boolean :completed
       t.references :user
+
+      t.timestamps null: false 
     end
   end
 end
