@@ -1,3 +1,7 @@
 get '/' do 
-  "Welcome to Singtube!"
+  erb :'index'
+end
+
+get '/users/new' do
+  "make the registration form"
 end
