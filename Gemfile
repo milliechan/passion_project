@@ -1,7 +1,9 @@
+ruby '2.3.1'
 source 'https://rubygems.org'
 
 # PostgreSQL driver
 gem 'pg'
+
 
 # Sinatra driver
 gem 'sinatra'
@@ -13,6 +15,11 @@ gem 'activerecord', '~>4.2.0'
 gem 'rake'
 
 gem 'shotgun'
+gem 'pry'
+gem 'bcrypt'
+gem 'dotenv'
+gem 'google-api-client', '>0.7'
+gem 'trollop'
 
 group :test do
   gem 'shoulda-matchers'
