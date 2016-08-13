@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :songs 
   validates :email, :password_hash, presence: true 
   validates :email, uniqueness: true
+  # users.password_hash in the database is a :string
 
   include BCrypt
 
@@ -16,6 +17,4 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 end
-
-
 

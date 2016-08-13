@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # PostgreSQL driver
 gem 'pg'
 
+
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -16,6 +17,11 @@ gem 'rake'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
+
+gem 'dotenv'
+gem 'google-api-client', '>0.7'
+gem 'trollop'
+
 
 group :test do
   gem 'shoulda-matchers'
