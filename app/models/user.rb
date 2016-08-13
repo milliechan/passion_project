@@ -16,5 +16,9 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+  def authenticate(input_password)
+    self.password == input_password
+  end
 end
 
