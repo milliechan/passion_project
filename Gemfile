@@ -19,7 +19,7 @@ gem 'pry'
 gem 'bcrypt'
 
 gem 'dotenv'
-gem 'google-api-client', '>0.7'
+# gem 'google-api-client', '>0.7'
 gem 'trollop'
 gem 'httparty'
 
