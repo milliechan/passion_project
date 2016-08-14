@@ -1,5 +1,5 @@
 get '/google817252d9e6d04b1e.html' do
-  google-site-verification: google817252d9e6d04b1e.html
+  "google-site-verification: google817252d9e6d04b1e.html"
 end
 
 get '/search' do 
