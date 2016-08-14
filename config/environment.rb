@@ -25,7 +25,7 @@ require "sinatra/reloader" if development?
  
 
 require 'erb'
-require 'google/api_client'
+# require 'google/api_client'
 require 'trollop'
 require 'bcrypt'
 require 'httparty'
