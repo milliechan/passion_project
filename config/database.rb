@@ -28,7 +28,7 @@ end
 # db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
-DB_NAME = db.path[1..-1]
+# DB_NAME = db.path[1..-1]
 
 # Note:
 #   Sinatra::Application.environment is set to the value of ENV['RACK_ENV']
