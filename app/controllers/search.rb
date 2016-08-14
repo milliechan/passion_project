@@ -1,5 +1,5 @@
 get '/google817252d9e6d04b1e.html' do
-  google-site-verification: google817252d9e6d04b1e.html
+  "google-site-verification: google817252d9e6d04b1e.html"
 end
 
 get '/search' do 
@@ -7,9 +7,10 @@ get '/search' do
   p "search query: #{params[:query]}"
 
   query = params[:query]
-  path = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10"
+  path = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&"
+  path += "q=#{query}"
   path += "&fields=items"
-  path += "&key=#{ENV['YOUTUBE_KEY']}"
+  path += "&key=#{ENV['SERVER_KEY']}"
 
   # GET https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=beyonce+karaoke&fields=items&key={YOUR_API_KEY}
 
@@ -28,7 +29,7 @@ get '/search' do
   # video_title = items[1].snippet.title
   # thumbnail = items[1].snippet.thumbnails.default.url
 
-"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&fields=items&key=#{ENV['YOUTUBE_KEY']}"
+# "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&fields=items&key=#{ENV['YOUTUBE_KEY']}"
 end
 
 post '/search' do 
