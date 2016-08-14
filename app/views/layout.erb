@@ -22,8 +22,8 @@
   <div id="nav">
   <% if !current_user.nil? %>
     <form action="/sessions" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Logout">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout">
     </form>
   <% end %> 
   </div>
