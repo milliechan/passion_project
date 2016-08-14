@@ -1,1 +1,18 @@
-Hello world... songs page 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+<h1>Dashboard</h1>
+<div id="search">
+<form action="/songs" method="GET"> 
+  <input id="query" type="text" name="query" placeholder="Search for a video">
+  <button type="submit" id="submit">Search</button>
+</div>
+<div id="search_results">
+  <%= erb :'/search/index' %> 
+
+</div>
+</body>
+</html>
