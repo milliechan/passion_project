@@ -1,5 +1,5 @@
 require 'dotenv'
-# Dotenv.load
+Dotenv.load
 
 
 # Set up gems listed in the Gemfile.
