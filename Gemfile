@@ -17,9 +17,11 @@ gem 'rake'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
+
 gem 'dotenv'
 gem 'google-api-client', '>0.7'
 gem 'trollop'
+gem 'httparty'
 
 group :test do
   gem 'shoulda-matchers'
