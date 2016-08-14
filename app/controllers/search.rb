@@ -28,7 +28,7 @@ get '/search' do
   # video_title = items[1].snippet.title
   # thumbnail = items[1].snippet.thumbnails.default.url
 
-"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&fields=items&key=#{ENV['YOUTUBE_KEY']}"
+# "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&fields=items&key=#{ENV['YOUTUBE_KEY']}"
 end
 
 post '/search' do 
