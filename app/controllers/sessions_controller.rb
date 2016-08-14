@@ -6,7 +6,7 @@ post '/sessions' do
   @user = User.find_by(email: params[:email])
   if @user && @user.authenticate(params[:password])
     session[:id] = @user.id 
-    redirect "/songs/index"
+    redirect "/songs"
   else 
     @errors = "Invalid login information. Please try again"
     erb :'sessions/new'
