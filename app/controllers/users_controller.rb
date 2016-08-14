@@ -3,5 +3,5 @@ get '/' do
 end
 
 get '/users/new' do
-  "make the registration form"
+  erb :'users/index'
 end
