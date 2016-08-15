@@ -6,9 +6,11 @@
       <li>Video Name: <%= details[0] %> </li>
       <ul>
         <li>Video ID: <%= details[1] %> </li>
-        <% if !details[1].nil? %>
-          <a href=<%= @url + details[1].to_s %> </a>
-        <% end %>
+        <% if details[1] == nil %> 
+          <p> No Video Found </p>
+        <% else %> 
+          <a href=<%= @url + details[1].to_s %>>Sing now! </a>
+        <% end %> 
         <li>Thumbnail: <%= details[2] %></li>
         <img src=<%= details[2] %> >  
       </ul>
