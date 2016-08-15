@@ -4,8 +4,14 @@
   <ol>
   <% @songs.each do |song, details| %> 
       <li>Video Name: <%= details[0] %> </li>
-      <li>Video ID: <%= details[1] %> </li>
-      <li>Thumbnail: <%= details[2] %></li>
+      <ul>
+        <li>Video ID: <%= details[1] %> </li>
+        <% if !details[1].nil? %>
+          <a href=<%= @url + details[1].to_s %> </a>
+        <% end %>
+        <li>Thumbnail: <%= details[2] %></li>
+        <img src=<%= details[2] %> >  
+      </ul>
   <% end %> 
   </ol> 
 <% else %> 

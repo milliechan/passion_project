@@ -24,13 +24,14 @@ get '/search' do
   # GET https://www.googleapis.com/youtube/v3/search
 
 
-  # youtube_link = "https://www.youtube.com/watch?v=" + videoId]
+  @url = "https://www.youtube.com/watch?v="
 
   # videoId = response.items[1].id.videoId 
   # videoTitle = response.items[1].snippet.title
   # videoPhoto = response.items[1].snippet.thumbnails.default.url
   # thumbnail = items[1].snippet.thumbnails.default.url
   @songs = {} 
+
   response["items"].each_with_index do |item, index|
     @songs[index] = [ 
       item["snippet"]["title"],
