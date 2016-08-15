@@ -5,34 +5,29 @@ end
 
 # post a song to the queue 
 post '/songs' do 
-  p "*" * 1000
-  p params
-  p "*" * 1000
-  @song = Song.new(params[:song]) #create new song
-  if @song.save #saves new song or returns false if unsuccessful
-    redirect '/songs' #redirect back to songs index page
+  @song = Song.new(params[:song])
+  if @song.save 
+    redirect '/songs' 
   else
-    redirect '/songs' # show new songs view again(potentially displaying errors)
+    redirect '/songs' 
   end
 end
-
-
-# delete '/songs/:id' do
-#   song = Song.find(params[:id])
-#   song.completed = true 
-#   p song.completed 
-#   redirect '/songs'
-# end
 
 
 put '/songs/:id' do 
-  @song = Song.find(params[:id]) #define variable to edit
-  @song.assign_attributes(completed: true) #assign new attributes
+  @song = Song.find(params[:id]) 
+  @song.assign_attributes(completed: true) 
 
-  if @song.save #saves new song or returns false if unsuccessful
-    redirect '/songs' #redirect back to songs index page
+  if @song.save 
+    if request.xhr?
+      p request
+      request 
+    end
+     
   else
-    erb :'songs/edit' #show edit song view again(potentially displaying errors)
+   redirect '/songs'
   end
 end
 
+# update database completed column
+# in js, hide 'this' thing that was clicked 

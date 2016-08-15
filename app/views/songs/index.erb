@@ -18,17 +18,17 @@
       <% if @queue %> 
         <ol> 
           <% @queue.each do |song| %> 
-            <div class="next-song">
+            <div id="<%=song.id%>">
               <% if song.completed == false || song.completed == nil %>
                 <% user = User.find(song.user_id) %>
                 <li> <%= user.full_name %> </li>
                 <a href=<%=song.url%>> <%=song.title%></a>
-                <form action="/songs/<%=song.id%>" method="POST"> 
+                <form class="edit-queue" action="/songs/<%=song.id%>" method="POST"> 
                   <input type="hidden" name="_method" value="PUT" >
-                  <input type="submit" value="Delete">
+                  <input type="submit" value="Done?">
                 </form><br>
-              </div>
             <% end %>
+            </div>
           <% end %>
         </ol>
       <% end %>
