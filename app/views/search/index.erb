@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <script src="search.js" type="text/javascript"></script>
-        <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
-    </head>
-    <body>
-        <pre id="response"></pre>
-    </body>
-</html>
+<h1>Search Results</h1>
+<% if !@songs.empty? %> 
+  <%= p @songs %>
+  <ol>
+  <% @songs.each do |song, details| %> 
+      <li>Video Name: <%= details[0] %> </li>
+      <li>Video ID: <%= details[1] %> </li>
+      <li>Thumbnail: <%= details[2] %></li>
+  <% end %> 
+  </ol> 
+<% else %> 
+  <p>No results. Please try again.</p>
+<% end %> 
