@@ -2,7 +2,7 @@
 <% if !@songs.empty? %> 
   <ol>
   <% @songs.each do |song, details| %> 
-        <% video_name = details[0].gsub(/\s/," ") %> 
+        <% video_name = details[0].gsub(/\s/,"") %> 
         <% video_id = details[1] %> 
         <% video_url = @url + video_id.to_s %>
         <% if video_id != nil %> 

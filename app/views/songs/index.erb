@@ -12,7 +12,6 @@
   </form>
   </div>
   <div id="search_results">
-    <h2>Search Results</h4>
   </div>
   <div id="queue">
     <h2>Next Singer</h4>
@@ -23,7 +22,7 @@
               <% if song.completed == false || song.completed == nil %>
                 <% user = User.find(song.user_id) %>
                 <li> <%= user.full_name %> </li>
-                <a href=<%="#{song.url}"%>> <%= song.title %></a>
+                <a href=<%=song.url%>> <%=song.title%></a>
                 <form action="/songs/<%=song.id%>" method="POST"> 
                   <input type="hidden" name="_method" value="PUT" >
                   <input type="submit" value="Delete">
