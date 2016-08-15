@@ -4,19 +4,21 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-    $('button').on('click', function(event) {
-    
-    event.preventDefault();
+    $('#search').on('submit', '#search-form', function(event) {
     alert("clicked!");
+    event.preventDefault();
+    
 
     var searchRequest = $.ajax({
       url: "/search",
-      type: "GET"
-    })
+      type: "GET",
+      data: $(this).serialize()
+    });
 
     searchRequest.done(function(response) {
       console.log(response)
-      $('#search_results').append(response);
+      $('#search_results').remove;
+      $('#search_results').html(response);
     })
 
   });
