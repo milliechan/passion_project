@@ -5,10 +5,8 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
     $('#search').on('submit', '#search-form', function(event) {
-    alert("clicked!");
     event.preventDefault();
     
-
     var searchRequest = $.ajax({
       url: "/search",
       type: "GET",
@@ -22,4 +20,20 @@ $(document).ready(function() {
     })
 
   });
+
+
+  // next singer queue 
+  // delete button should hide the div 
+    // the page should reload erb partial 
+
+  // $("#queue").on('submit', function(event) {
+  //   alert("clicked!");
+  //   event.preventDefault();
+
+  //   // var editRequest = $.ajax({
+  //   //   url: //grab /songs/:id 
+      
+  //   // })
+  // });
+
 });
