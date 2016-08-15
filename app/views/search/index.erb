@@ -3,16 +3,15 @@
   <%= p @songs %>
   <ol>
   <% @songs.each do |song, details| %> 
-      <li>Video Name: <%= details[0] %> </li>
+      
       <ul>
-        <li>Video ID: <%= details[1] %> </li>
-        <% if details[1] == nil %> 
-          <p> No Video Found </p>
-        <% else %> 
-          <a href=<%= @url + details[1].to_s %>>Sing now! </a>
+        <% video_id = details[1] %> 
+        <% if video_id != nil %> 
+          <a href=<%= @url + video_id.to_s %>>
+            <li><%= details[0] %> </li>
+            <img src=<%= details[2] %> > 
+          </a>
         <% end %> 
-        <li>Thumbnail: <%= details[2] %></li>
-        <img src=<%= details[2] %> >  
       </ul>
   <% end %> 
   </ol> 
