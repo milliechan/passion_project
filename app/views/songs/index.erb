@@ -17,12 +17,21 @@
   <div id="queue">
     <h2>Next Singer</h4>
       <% if @queue %> 
-        <% @queue.each do |item| %> 
-          <%= item.user_id %>
-          <%= item.title %>
-          <%= item.url %> 
-          <%= item.completed %> 
-        <% end %>
+        <ol> 
+          <% @queue.each do |song| %> 
+            <div class="next-song">
+              <% if song.completed == false || song.completed == nil %>
+                <% user = User.find(song.user_id) %>
+                <li> <%= user.full_name %> </li>
+                <a href=<%="#{song.url}"%>> <%= song.title %></a>
+                <form action="/songs/<%=song.id%>" method="POST"> 
+                  <input type="hidden" name="_method" value="PUT" >
+                  <input type="submit" value="Delete">
+                </form><br>
+              </div>
+            <% end %>
+          <% end %>
+        </ol>
       <% end %>
   </div>
 </body>

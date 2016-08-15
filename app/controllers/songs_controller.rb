@@ -14,5 +14,25 @@ post '/songs' do
   else
     redirect '/songs' # show new songs view again(potentially displaying errors)
   end
-
 end
+
+
+# delete '/songs/:id' do
+#   song = Song.find(params[:id])
+#   song.completed = true 
+#   p song.completed 
+#   redirect '/songs'
+# end
+
+
+put '/songs/:id' do 
+  @song = Song.find(params[:id]) #define variable to edit
+  @song.assign_attributes(completed: true) #assign new attributes
+
+  if @song.save #saves new song or returns false if unsuccessful
+    redirect '/songs' #redirect back to songs index page
+  else
+    erb :'songs/edit' #show edit song view again(potentially displaying errors)
+  end
+end
+
