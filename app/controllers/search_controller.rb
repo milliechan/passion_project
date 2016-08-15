@@ -20,15 +20,15 @@ get '/search' do
 
   response["items"].each_with_index do |item, index|
     @songs[index] = [ 
-      item["snippet"]["title"],
-      item["id"]["videoId"],
-      item["snippet"]["thumbnails"]["default"]["url"]
-    ]
+                      item["snippet"]["title"],
+                      item["id"]["videoId"],
+                      item["snippet"]["thumbnails"]["default"]["url"]
+                    ]
   end
   
   # if request.xhr? send partial with locals {songs = songs }
   if request.xhr?
-    erb :'search/index'
+    erb :'search/_index', layout: false
   else 
    erb :'search/index'
   end
