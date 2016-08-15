@@ -6,13 +6,12 @@
 <body>
   <h1>Dashboard</h1>
   <div id="search">
-  <form action="/search" method="GET"> 
+  <form id ="search-form" action="/search" method="GET"> 
     <input id="query" type="text" name="query" placeholder="Search for a video">
-    <button type="submit" id="submit">Search</button>
+    <input type="submit" name="submit" value="Search">
   </form>
   </div>
   <div id="search_results">
-    <h2>Search Results</h4>
   </div>
   <div id="queue">
     <h2>Next Singer</h4>
@@ -23,7 +22,7 @@
               <% if song.completed == false || song.completed == nil %>
                 <% user = User.find(song.user_id) %>
                 <li> <%= user.full_name %> </li>
-                <a href=<%="#{song.url}"%>> <%= song.title %></a>
+                <a href=<%=song.url%>> <%=song.title%></a>
                 <form action="/songs/<%=song.id%>" method="POST"> 
                   <input type="hidden" name="_method" value="PUT" >
                   <input type="submit" value="Delete">
