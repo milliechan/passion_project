@@ -1,5 +1,6 @@
 get '/' do 
-  if current_user
+  # session.clear
+  if current_user 
     redirect '/songs'
   else
     erb :'index'

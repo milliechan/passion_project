@@ -4,6 +4,22 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    $('#search').on('submit', '#search-form', function(event) {
+    alert("clicked!");
+    event.preventDefault();
+    
 
-  $()
+    var searchRequest = $.ajax({
+      url: "/search",
+      type: "GET",
+      data: $(this).serialize()
+    });
+
+    searchRequest.done(function(response) {
+      console.log(response)
+      $('#search_results').remove;
+      $('#search_results').html(response);
+    })
+
+  });
 });
