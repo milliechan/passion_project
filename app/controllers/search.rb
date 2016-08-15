@@ -27,7 +27,11 @@ get '/search' do
   end
   
   # if request.xhr? send partial with locals {songs = songs }
+  if request.xhr?
+    erb :'search/index'
+  else 
    erb :'search/index'
+  end
 end
 
 post '/search' do 

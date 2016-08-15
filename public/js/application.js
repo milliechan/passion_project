@@ -4,5 +4,20 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    $('button').on('click', function(event) {
+    
+    event.preventDefault();
+    alert("clicked!");
 
+    var searchRequest = $.ajax({
+      url: "/search",
+      type: "GET"
+    })
+
+    searchRequest.done(function(response) {
+      console.log(response)
+      $('#search_results').append(response);
+    })
+
+  });
 });
