@@ -1,5 +1,9 @@
 get '/' do 
-  erb :'index'
+  if current_user
+    redirect '/songs'
+  else
+    erb :'index'
+  end
 end
 
 get '/users/new' do

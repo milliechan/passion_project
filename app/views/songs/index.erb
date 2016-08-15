@@ -16,6 +16,14 @@
   </div>
   <div id="queue">
     <h2>Next Singer</h4>
+      <% if @queue %> 
+        <% @queue.each do |item| %> 
+          <%= item.user_id %>
+          <%= item.title %>
+          <%= item.url %> 
+          <%= item.completed %> 
+        <% end %>
+      <% end %>
   </div>
 </body>
 </html>

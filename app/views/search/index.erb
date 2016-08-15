@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <script src="search.js" type="text/javascript"></script>
-        <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
-    </head>
-    <body>
-        <pre id="response"></pre>
-    </body>
-</html>
+<h1>Search Results</h1>
+<% if !@songs.empty? %> 
+  <%= p @songs %>
+  <ol>
+  <% @songs.each do |song, details| %> 
+        <% video_name = details[0].gsub(/\s/,"") %> 
+        <% video_id = details[1] %> 
+        <% video_url = @url + video_id.to_s %>
+        <% if video_id != nil %> 
+          <a href=<%= @url + video_id.to_s %>>
+            <li><%= video_name %> </li>
+            <img src=<%= details[2] %>>
+          </a>
+          <form action="/songs" method="POST"> 
+              <input type="hidden" name="song[title]" value=<%= "#{video_name}" %>>
+              <input type="hidden" name="song[url]" value=<%= "#{video_url}" %>>
+              <input type="hidden" name="song[user_id]" value=<%= "#{current_user.id}" %>>
+              <input type="submit" value="Add this song!"> 
+          </form> 
+        <% end %> 
+        <br>
+  <% end %> 
+  </ol> 
+<% else %> 
+  <p>No results. Please try again.</p>
+<% end %> 
