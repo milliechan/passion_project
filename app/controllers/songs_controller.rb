@@ -5,9 +5,6 @@ end
 
 # post a song to the queue 
 post '/songs' do 
-  p "*" * 1000
-  p params
-  p "*" * 1000
   @song = Song.new(params[:song])
   if @song.save 
     redirect '/songs' 
@@ -22,9 +19,15 @@ put '/songs/:id' do
   @song.assign_attributes(completed: true) 
 
   if @song.save 
-    redirect '/songs' 
+    if request.xhr?
+      p request
+      request 
+    end
+     
   else
-    erb :'songs/edit' 
+   redirect '/songs'
   end
 end
 
+# update database completed column
+# in js, hide 'this' thing that was clicked 

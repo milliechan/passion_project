@@ -24,16 +24,29 @@ $(document).ready(function() {
 
   // next singer queue 
   // delete button should hide the div 
-    // the page should reload erb partial 
+  //   the page should reload erb partial 
 
-  // $("#queue").on('submit', function(event) {
-  //   alert("clicked!");
-  //   event.preventDefault();
+  $(".edit-queue").on('submit', function(event) {
+    event.preventDefault();
+    alert("clicked!");
+    
 
-  //   // var editRequest = $.ajax({
-  //   //   url: //grab /songs/:id 
+    songUrl = $(this).parent().attr('id');
+    var $that = $(this);
+
+    var editRequest = $.ajax({
+      url: "/songs/" + songUrl,
+      type: "PUT",
+      data: $(this).serialize()
+    });
+
+    editRequest.done(function(response) {
+      $that.parent().hide();
+      console.log(response);
       
-  //   // })
-  // });
 
+    }) 
+  });
 });
+
+
