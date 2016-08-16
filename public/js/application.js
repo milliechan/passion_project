@@ -28,8 +28,6 @@ $(document).ready(function() {
 
   $(".edit-queue").on('submit', function(event) {
     event.preventDefault();
-    alert("clicked!");
-    
 
     songUrl = $(this).parent().attr('id');
     var $that = $(this);
@@ -47,6 +45,39 @@ $(document).ready(function() {
 
     }) 
   });
+
+
+  // ajax the login and registration 
+  // help!
+  $("#log-in").on('click', function(event) {
+    event.preventDefault();
+    alert("clicked!")
+
+    var getLogin = $.ajax({
+      url: "/sessions/new",
+      type: "GET"
+    });
+
+    getLogin.done(function(response) {
+      $("#sign-in").html(response)
+    });
+
+  });
 });
+
+
+
+// $.get( "ajax/test.html", function( data ) {
+//   $( ".result" ).html( data );
+//   alert( "Load was performed." );
+// });
+
+
+
+
+
+
+
+
 
 

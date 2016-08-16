@@ -1,6 +1,8 @@
 body {
-  background-color: #A3E4D7
+  background-image: url("../img/blurred_background.jpg");
 }
+
+
 
 .submitLink {
   background-color: transparent;
