@@ -23,6 +23,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
+  <link rel="stylesheet" href="../../public/font-awesome-4.6.3/css/font-awesome.min.css">
 
   <title>Singtube</title>
 </head>
@@ -47,7 +48,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
           <% if current_user.nil? %>
-            <li><a href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            <li><a id="log-in" href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
           <% else %> 
             <!-- <li><a method="DELETE" href="/sessions"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li> -->
             <form action="/sessions" method="POST">
