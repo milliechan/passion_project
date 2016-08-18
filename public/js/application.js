@@ -44,14 +44,13 @@ $(document).ready(function() {
       
 
     }) 
-  });
+  }); // end of queue 
 
 
   // ajax the login and registration 
   // help!
   $("#log-in").on('click', function(event) {
     event.preventDefault();
-    alert("clicked!")
 
     var getLogin = $.ajax({
       url: "/sessions/new",
@@ -62,15 +61,10 @@ $(document).ready(function() {
       $("#sign-in").html(response)
     });
 
-  });
-});
+  }); // end of log in ajax 
 
+}); // end of document ready 
 
-
-// $.get( "ajax/test.html", function( data ) {
-//   $( ".result" ).html( data );
-//   alert( "Load was performed." );
-// });
 
 
 
