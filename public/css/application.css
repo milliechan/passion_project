@@ -16,6 +16,6 @@ submitLink:focus {
   outline: none;
 }
 
-#search{
-  
+#queue-song-link {
+  color: white;
 }
