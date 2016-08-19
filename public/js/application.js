@@ -14,11 +14,13 @@ $(document).ready(function() {
     });
 
     searchRequest.done(function(response) {
-      console.log(response)
       $('#search_results').remove;
       $('#search_results').html(response);
     })
 
+    searchRequest.fail(function(response) {
+      console.log("Search form failed.")
+    })
   });
 
 
@@ -40,10 +42,11 @@ $(document).ready(function() {
 
     editRequest.done(function(response) {
       $that.parent().hide();
-      console.log(response);
-      
+    }); 
 
-    }) 
+    editRequest.fail(function(response){
+      console.log("Edit request failed.")
+    });
   }); // end of queue 
 
 
@@ -61,7 +64,12 @@ $(document).ready(function() {
       $("#sign-in").html(response)
     });
 
+    getLogin.fail(function(response){
+      console.log("Get login form failed.")
+    })
   }); // end of log in ajax 
+
+
 
 }); // end of document ready 
 
