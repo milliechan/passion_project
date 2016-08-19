@@ -10,11 +10,13 @@
             <li><%= video_name %> </li>
             <img src=<%= details[2] %>>
           </a>
-          <form action="/songs" method="POST"> 
+          <form role="form" action="/songs" method="POST"> 
               <input type="hidden" name="song[title]" value=<%= "#{video_name}" %>>
               <input type="hidden" name="song[url]" value=<%= "#{video_url}" %>>
               <input type="hidden" name="song[user_id]" value=<%= "#{current_user.id}" %>>
-              <input type="submit" value="Add this song!"> 
+              <div class="form-group">
+                  <button class="btn btn-default" type="submit">Add Song</button>
+              </div>  
           </form> 
         <% end %> 
         <br>
