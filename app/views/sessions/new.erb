@@ -4,8 +4,15 @@
   <%= @errors %> 
 <% end %> 
 
-<form action="/sessions" method="POST"><br>
-<input type="text" name="email" placeholder="email"><br>
-<input type="password" name="password" placeholder="password"><br>
-<input type="submit" value="Login"><br>
+<form role="form" action="/sessions" method="POST">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input  type="text" class="form-control" name="email" placeholder="email">
+  </div>
+  <div class="form-group">
+  <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" name="password" placeholder="password">
+  </div>
+    <button type="submit" class="btn btn-default" value="Login">Login</button>
 </form>
+
