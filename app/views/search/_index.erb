@@ -7,7 +7,7 @@
         <% video_url = @url + video_id.to_s %>
         <% if video_id != nil %> 
           <a href=<%= @url + video_id.to_s %> target="_blank" >
-            <li><%= video_name %> </li>
+            <h5><li><%= video_name %> </li></h5>
             <img src=<%= details[2] %>>
           </a>
           <form role="form" action="/songs" method="POST"> 
