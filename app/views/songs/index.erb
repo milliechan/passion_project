@@ -24,7 +24,7 @@
               <div id="<%=song.id%>">
                 <% if song.completed == false || song.completed == nil %>
                   <% user = User.find(song.user_id) %>
-                  <li><h4> <%= user.full_name %></h4></li>
+                  <h4><li><%= user.full_name %></li></h4>
                   <h5><a id="queue-song-link" href=<%=song.url%> target="_blank" > <%=song.title%></a></h5>
                   <form class="edit-queue" action="/songs/<%=song.id%>" method="POST"> 
                     <input type="hidden" name="_method" value="PUT" >
