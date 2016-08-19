@@ -14,11 +14,13 @@ $(document).ready(function() {
     });
 
     searchRequest.done(function(response) {
-      console.log(response)
-      $('#search_results').remove;
-      $('#search_results').html(response);
+      $('#search-results').remove;
+      $('#search-results').html(response);
     })
 
+    searchRequest.fail(function(response) {
+      console.log("Search form failed.")
+    })
   });
 
 
@@ -40,10 +42,11 @@ $(document).ready(function() {
 
     editRequest.done(function(response) {
       $that.parent().hide();
-      console.log(response);
-      
+    }); 
 
-    }) 
+    editRequest.fail(function(response){
+      console.log("Edit request failed.")
+    });
   }); // end of queue 
 
 
@@ -61,7 +64,42 @@ $(document).ready(function() {
       $("#sign-in").html(response)
     });
 
+    getLogin.fail(function(response){
+      console.log("Get login form failed.")
+    })
   }); // end of log in ajax 
+
+
+  // ajax the add this song button 
+  $("#search-results").on("submit", "form", function(event){ 
+    event.preventDefault(); 
+    alert("clicked!"); 
+
+
+    var $selectedSong = $(this)
+
+    var selectedSongUrl = $selectedSong.attr("action")
+    var selectedSongType = $selectedSong.attr("method")
+    
+
+    var addSongRequest = $.ajax({
+      url: selectedSongUrl,
+      type: selectedSongType,
+      data: $selectedSong.serialize()
+    })
+
+    addSongRequest.done(function(response){
+      $("#queue").append(response);
+      $("#search-results").empty();
+
+    }); 
+
+    addSongRequest.fail(function(response){
+      console.log("Add Song Request Failed")
+      console.log(response)
+    });
+
+  });
 
 }); // end of document ready 
 
