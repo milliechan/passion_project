@@ -14,8 +14,8 @@ $(document).ready(function() {
     });
 
     searchRequest.done(function(response) {
-      $('#search_results').remove;
-      $('#search_results').html(response);
+      $('#search-results').remove;
+      $('#search-results').html(response);
     })
 
     searchRequest.fail(function(response) {
@@ -70,6 +70,36 @@ $(document).ready(function() {
   }); // end of log in ajax 
 
 
+  // ajax the add this song button 
+  $("#search-results").on("submit", "form", function(event){ 
+    event.preventDefault(); 
+    alert("clicked!"); 
+
+
+    var $selectedSong = $(this)
+
+    var selectedSongUrl = $selectedSong.attr("action")
+    var selectedSongType = $selectedSong.attr("method")
+    
+
+    var addSongRequest = $.ajax({
+      url: selectedSongUrl,
+      type: selectedSongType,
+      data: $selectedSong.serialize()
+    })
+
+    addSongRequest.done(function(response){
+      $("#queue").append(response);
+      $("#search-results").empty();
+
+    }); 
+
+    addSongRequest.fail(function(response){
+      console.log("Add Song Request Failed")
+      console.log(response)
+    });
+
+  });
 
 }); // end of document ready 
 

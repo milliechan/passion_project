@@ -7,7 +7,11 @@ end
 post '/songs' do 
   @song = Song.new(params[:song])
   if @song.save 
-    redirect '/songs' 
+    if request.xhr? 
+      p "*" * 1000 
+      p request
+      erb :'/songs/_index', layout: false, locals: {song: @song}
+    end 
   else
     redirect '/songs' 
   end
@@ -29,5 +33,3 @@ put '/songs/:id' do
   end
 end
 
-# update database completed column
-# in js, hide 'this' thing that was clicked 
