@@ -6,7 +6,7 @@
         <% video_id = details[1] %> 
         <% video_url = @url + video_id.to_s %>
         <% if video_id != nil %> 
-          <a href=<%= @url + video_id.to_s %>>
+          <a href=<%= @url + video_id.to_s %> target="_blank" >
             <li><%= video_name %> </li>
             <img src=<%= details[2] %>>
           </a>

@@ -1,5 +1,4 @@
 get '/' do 
-  # session.clear
   if current_user 
     redirect '/songs'
   else
