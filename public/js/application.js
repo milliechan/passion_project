@@ -73,11 +73,8 @@ $(document).ready(function() {
   // ajax the add this song button 
   $("#search-results").on("submit", "form", function(event){ 
     event.preventDefault(); 
-    alert("clicked!"); 
-
 
     var $selectedSong = $(this)
-
     var selectedSongUrl = $selectedSong.attr("action")
     var selectedSongType = $selectedSong.attr("method")
     
@@ -99,7 +96,7 @@ $(document).ready(function() {
       console.log(response)
     });
 
-  });
+  }); // end of add this song button 
 
 }); // end of document ready 
 
