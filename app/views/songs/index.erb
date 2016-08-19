@@ -8,14 +8,14 @@
   <div id="search">
     <form id ="search-form" action="/search" method="GET"> 
       <input id="query" type="text" name="query" placeholder="Search for a video">
-      <input type="submit" name="submit" value="Search">
+      <input class="btn btn-default" type="submit" name="submit" value="Search">
     </form>
   </div>
 
-  <div id="search-results">
+  <div id="search-results" class="col-sm-6">
   </div>
 
-  <div id="queue-container">
+  <div id="queue-container" class="col-sm-6">
     <h2>Next Singer</h4>
       <% if @queue %> 
         <ol> 
@@ -28,7 +28,7 @@
                   <a href=<%=song.url%>> <%=song.title%></a>
                   <form class="edit-queue" action="/songs/<%=song.id%>" method="POST"> 
                     <input type="hidden" name="_method" value="PUT" >
-                    <input type="submit" value="Done?">
+                    <input class="btn btn-default" type="submit" value="Done?">
                   </form><br>
               <% end %>
               </div>
@@ -39,3 +39,4 @@
 
 </body>
 </html>
+
