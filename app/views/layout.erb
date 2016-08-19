@@ -49,7 +49,7 @@
         <ul class="nav navbar-nav navbar-right">
 
           <% if current_user.nil? %>
-            <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+            <li><a id="sign-up" href="/users/new"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
             <li><a id="log-in" href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
           <% else %> 
             <form action="/sessions" method="POST">

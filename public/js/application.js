@@ -50,8 +50,7 @@ $(document).ready(function() {
   }); // end of queue 
 
 
-  // ajax the login and registration 
-  // help!
+  // ajax the login 
   $("#log-in").on('click', function(event) {
     event.preventDefault();
 
@@ -69,6 +68,27 @@ $(document).ready(function() {
     })
   }); // end of log in ajax 
 
+
+
+  //ajax the registration/sign up link 
+  $("#sign-up").on('click', function(event) {
+    event.preventDefault();
+
+    var getSignUp = $.ajax({
+      url: "/users/new",
+      type: "GET"
+    });
+
+    getSignUp.done(function(response){
+      console.log(response)
+      $("#sign-in").empty();
+      $("#sign-in").html(response)
+    });
+
+    getSignUp.fail(function(response){
+      console.log("Get sign up failed");
+    });
+  }); // end of sign up 
 
   // ajax the add this song button 
   $("#search-results").on("submit", "form", function(event){ 
