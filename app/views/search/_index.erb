@@ -6,15 +6,17 @@
         <% video_id = details[1] %> 
         <% video_url = @url + video_id.to_s %>
         <% if video_id != nil %> 
-          <a href=<%= @url + video_id.to_s %>>
-            <li><%= video_name %> </li>
+          <a id="queue-song-link" href=<%= @url + video_id.to_s %> target="_blank" >
+            <h5><li><%= video_name %> </li></h5>
             <img src=<%= details[2] %>>
           </a>
-          <form action="/songs" method="POST"> 
+          <form role="form" action="/songs" method="POST"> 
               <input type="hidden" name="song[title]" value=<%= "#{video_name}" %>>
               <input type="hidden" name="song[url]" value=<%= "#{video_url}" %>>
               <input type="hidden" name="song[user_id]" value=<%= "#{current_user.id}" %>>
-              <input type="submit" value="Add this song!"> 
+              <div class="form-group">
+                <input class="btn btn-default" type="submit" value="Add this song!"> 
+              </div>
           </form> 
         <% end %> 
         <br>
