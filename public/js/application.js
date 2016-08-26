@@ -43,8 +43,8 @@ $(document).ready(function() {
     var songToLoad = "https://www.youtube.com/embed/"  
     editRequest.done(function(response) {
       $that.parent().hide();
-      console.log(response)
-      $("iframe").attr("src", songToLoad + response)
+      console.log(response);
+      $("iframe").attr("src", songToLoad + response);
     }); 
 
     editRequest.fail(function(response){
