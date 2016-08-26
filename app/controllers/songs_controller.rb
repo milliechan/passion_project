@@ -8,8 +8,6 @@ post '/songs' do
   @song = Song.new(params[:song])
   if @song.save 
     if request.xhr? 
-      p "*" * 1000 
-      p request
       erb :'/songs/_index', layout: false, locals: {song: @song}
     end 
   else
@@ -24,8 +22,7 @@ put '/songs/:id' do
 
   if @song.save 
     if request.xhr?
-      p request
-      request 
+      @song.url.match(/[^=]*$/)[0]
     end
      
   else
