@@ -28,7 +28,8 @@ $(document).ready(function() {
   // delete button should hide the div 
   //   the page should reload erb partial 
 
-  $(".edit-queue").on('submit', function(event) {
+  // ajax the youtube video to load in iframe
+  $("#queue").on('submit', 'form', function(event) {
     event.preventDefault();
 
     songUrl = $(this).parent().attr('id');
